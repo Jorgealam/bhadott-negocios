@@ -120,6 +120,10 @@ p{margin:0}
   font-family:var(--font-display);font-size:1.45rem;font-weight:700;
   color:var(--accent-ink);font-variant-numeric:tabular-nums;
 }
+.price-note{
+  font-family:var(--font-body);font-size:.82rem;font-weight:500;
+  color:var(--ink-soft);letter-spacing:0;
+}
 
 /* Passos */
 .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
