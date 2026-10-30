@@ -1,0 +1,154 @@
+/* BHADOTT Negócios — tema claro e humano, com faixas em azul profundo da marca.
+   Layout: coluna única estreita, faixas alternadas de largura total. */
+
+:root{
+  --paper:#F6F4F0;
+  --surface:#FFFFFF;
+  --ink:#131A2A;
+  --ink-soft:#4E5A72;
+  --line:#DFDAD1;
+  --deep:#0A1226;
+  --deep-ink:#EDEAE3;
+  --deep-soft:#A9B4CA;
+  --accent:#E0871A;
+  --accent-ink:#8A4A0C;
+  --on-accent:#1A0E02;
+  --whats:#25D366;
+  --font-display:"Fraunces","Georgia",serif;
+  --font-body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A1020;
+    --surface:#141C2F;
+    --ink:#ECEAE4;
+    --ink-soft:#9AA6BC;
+    --line:#263147;
+    --deep:#050A16;
+    --accent:#F0A24A;
+    --accent-ink:#F7C98B;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A1020;
+  --surface:#141C2F;
+  --ink:#ECEAE4;
+  --ink-soft:#9AA6BC;
+  --line:#263147;
+  --deep:#050A16;
+  --accent:#F0A24A;
+  --accent-ink:#F7C98B;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+
+.wrap{
+  max-width:720px;
+  margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:48px;
+}
+
+h1,h2,h3{font-family:var(--font-display);margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(2rem,7vw,2.9rem);font-weight:600;letter-spacing:-.01em}
+h2{font-size:clamp(1.4rem,4.5vw,1.85rem);font-weight:600}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0}
+
+.band{width:100%}
+.band--deep{background:var(--deep);color:var(--deep-ink)}
+.band--deep .lead,.band--deep .note{color:var(--deep-soft)}
+.band--deep .eyebrow{color:var(--accent)}
+
+.stack{display:flex;flex-direction:column;gap:18px}
+.stack--tight{gap:10px}
+
+.eyebrow{
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:700;color:var(--accent-ink);
+}
+.lead{font-size:1.08rem;color:var(--ink-soft);max-width:52ch}
+.note{font-size:.85rem;color:var(--ink-soft)}
+
+/* Barra superior */
+.topbar{background:var(--deep);border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar__inner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-block:14px;
+}
+.brand{
+  font-family:var(--font-display);font-weight:700;font-size:1rem;
+  letter-spacing:.22em;color:var(--accent);text-decoration:none;
+}
+
+/* Botões */
+.btn{
+  display:inline-block;align-self:flex-start;
+  background:var(--accent);color:var(--on-accent);
+  font-weight:700;font-size:1rem;text-decoration:none;
+  padding:15px 26px;border-radius:999px;
+}
+.btn--sm{padding:9px 18px;font-size:.88rem}
+.btn:focus-visible,.fab:focus-visible{outline:3px solid var(--accent-ink);outline-offset:3px}
+
+/* Cartões de serviço */
+.grid{display:grid;gap:14px}
+@media(min-width:620px){.grid--2{grid-template-columns:1fr 1fr}}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:20px;min-width:0;display:flex;flex-direction:column;gap:8px;
+}
+.card p{color:var(--ink-soft);font-size:.94rem}
+.price{
+  font-family:var(--font-display);font-size:1.45rem;font-weight:700;
+  color:var(--accent-ink);font-variant-numeric:tabular-nums;
+}
+
+/* Passos */
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.steps li{display:flex;gap:14px;align-items:flex-start;min-width:0}
+.num{
+  flex:0 0 30px;height:30px;border-radius:50%;
+  background:var(--accent);color:var(--on-accent);
+  font-weight:700;font-size:.85rem;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Trabalhos */
+.work{display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:1px solid var(--line)}
+.work:last-child{border-bottom:none}
+.work span{font-size:.88rem;color:var(--ink-soft)}
+
+.contact-box{
+  background:var(--surface);border:1px dashed var(--line);border-radius:14px;
+  padding:16px;font-weight:600;color:var(--ink);word-break:break-word;
+}
+
+/* Botão flutuante do WhatsApp */
+.fab{
+  position:fixed;
+  right:calc(16px + env(safe-area-inset-right,0px));
+  bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  width:56px;height:56px;border-radius:50%;
+  background:var(--whats);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.28);
+  z-index:20;
+}
